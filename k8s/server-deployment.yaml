@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: rallycoding/multi-server
+          image: tmcarrara/multi-server
           ports:
             - containerPort: 5000
           env:
@@ -35,3 +35,10 @@ spec:
                 secretKeyRef:
                   name: pgpassword
                   key: PGPASSWORD
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
