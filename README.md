@@ -1,4 +1,4 @@
-# USED COMMANDS 
+# COMMON COMMANDS 
 
 ## MINIKUBE
 
@@ -28,10 +28,6 @@
 ### NODE
 
 nodes are individual machines or vm's that run containers
-
-### MASTER
-
-masters are individual machines or vm's with a set of programs  to manage nodes
 
 ## Accessing docker server inside minikube
 
