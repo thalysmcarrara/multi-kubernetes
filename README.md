@@ -1,3 +1,45 @@
+# Architecture
+
+![architecture](./kubernetes-arc.jpg)
+
+## Deploy Steps
+
+### 1 - Google Cloud Kubernetes setup from cloud shell
+
+- gcloud config set project <project_id>
+- gcloud config set compute/region <cluster_location>
+- gcloud container clusters get-credentials <cluster_name>
+
+
+### 2 - Installing Helm to Google Cloud Kubernetes Cluster using cloud shell 
+
+- curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+- chmod 700 get_helm.sh
+- ./get_helm.sh
+
+or check the [link](https://helm.sh/docs/intro/install/#from-script)
+
+### 3 - Installing Kubernetes ingress-nginx
+
+```bash
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace \
+  --set controller.resources.requests.cpu=100m \
+  --set controller.resources.requests.memory=90Mi \
+  --set controller.resources.limits.cpu=200m \
+  --set controller.resources.limits.memory=180Mi \
+  --set defaultBackend.resources.requests.cpu=50m \
+  --set defaultBackend.resources.requests.memory=60Mi \
+  --set defaultBackend.resources.limits.cpu=100m \
+  --set defaultBackend.resources.limits.memory=120Mi \
+  --set admissionWebhooks.patch.resources.requests.cpu=50m \
+  --set admissionWebhooks.patch.resources.requests.memory=60Mi \
+  --set admissionWebhooks.patch.resources.limits.cpu=100m \
+  --set admissionWebhooks.patch.resources.limits.memory=120Mi
+
+```
+
 # COMMON COMMANDS 
 
 ## MINIKUBE
