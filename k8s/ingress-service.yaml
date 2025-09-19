@@ -8,8 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: kub.playclick.lat
-      http:
+    -  http:
         paths:
           - path: /?(.*)
             pathType: ImplementationSpecific
