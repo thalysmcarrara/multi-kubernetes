@@ -52,13 +52,12 @@ helm upgrade --install ingress-nginx ingress-nginx \
 
 ## KUBECTL
 
-- kubectl apply -f client-pod.yaml
-- kubectl apply -f client-node-port.yaml
+- kubectl apply -f k8s
 - kubectl get pods
 - kubectl get services
-- kubectl describe <type> <name>  -  kubectl describe pod client-pod
+- kubectl describe <type> <name>  -  kubectl describe deployment client-deployment
 - kubectl delete <kind_of_object> <object_name> - kubectl delete deployment client-deployment
-- kubectl delete -f <file_path> - kubectl delete -f client-pod.yaml
+- kubectl delete -f <file_path> - kubectl delete -f client-deployment.yaml
 - kubectl set image <object_type> / <object_name> <container_name>=<new_image_to_use>
 - kubectl get storageclass
 - kubectl get pv - pv = persistente volume
